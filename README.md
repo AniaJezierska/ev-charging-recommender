@@ -1,22 +1,19 @@
-# EV Charging Recommender — Engineering Thesis
+\# EV Charging Recommender — Engineering Thesis
 
 Polish-Japanese Academy of Information Technology, Warsaw · 2025
 
-For my engineering thesis, I developed a machine learning system to help EV drivers decide where and when to charge. My work covered two tasks: forecasting electricity prices and ranking charging stations. I evaluated the approach using data from Warsaw, Amsterdam, and London.
+For my engineering thesis, I developed a machine learning system to help EV drivers decide **where and when to charge**. The system combines hourly electricity price forecasting (Random Forest) with charging station ranking (CatBoostRanker). I evaluated it using data from Warsaw, Amsterdam, and London.
 
-## How the recommendation works
+## System Architecture
 
-1. **Forecast electricity prices.** A Random Forest model predicts hourly electricity prices for each city over the next 24 hours.
-2. **Rank charging stations.** For a given city and hour, CatBoostRanker ranks stations using features such as the number of charging points, free-flow traffic speed, and location within the city.
-3. **Recommend a station and time.** The system combines the forecast electricity price with estimated travel time and queue risk to suggest where and when to charge.
+![Four stages of the EV charging recommendation system: data, forecasting, ranking, and recommendation](assets/ev-charging-system-overview.png)
 
-## Results
+## Model Evaluation
 
-| Task | Evaluation | Result |
-| --- | --- | --- |
-| Hourly electricity price forecasting | Mean absolute error on the validation set | Approximately 12 EUR/MWh |
-| Charging station ranking | Mean NDCG@10 across leave-one-city-out evaluations for Amsterdam, London, and Warsaw | 0.923 |
+![Forecasting results: actual vs. predicted electricity prices and error metrics](assets/ev-price-forecast-results.png)
 
-## Data limitation
+![Charging station ranking results: NDCG at 1, 3, 5, and 10](assets/ev-ranking-results.png)
 
-Live charger occupancy was unavailable. I used station characteristics, including the number of charging points and the city zone, to estimate queue risk. The ranking results therefore describe how well the model reproduced the project's scoring criteria. Actual waiting times at the stations would be needed to validate the queue estimates.
+## Data Limitations
+
+Live charger occupancy data was unavailable. Queue risk was estimated using station characteristics such as the number of charging points and city zone. **The ranking metrics reflect agreement with the project's scoring criteria**, not independently verified real-world waiting times.
