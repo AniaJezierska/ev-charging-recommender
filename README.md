@@ -8,8 +8,6 @@ For my engineering thesis, I developed a machine learning system to help EV driv
 
 ![Four stages of the EV charging recommendation system: data, forecasting, ranking, and recommendation](assets/ev-charging-system-overview.png)
 
-## Model Evaluation
-
 ![Forecasting results: actual vs. predicted electricity prices and error metrics](assets/ev-price-forecast-results.png)
 
 ![Charging station ranking results: NDCG at 1, 3, 5, and 10](assets/ev-ranking-results.png)
