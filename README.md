@@ -1,4 +1,4 @@
-\# EV Charging Recommender — Engineering Thesis
+# EV Charging Recommender — Engineering Thesis
 
 Polish-Japanese Academy of Information Technology, Warsaw · 2025
 
